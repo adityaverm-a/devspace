@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300&display=swap');
+/* Global Styles */
+* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
+
+body {
+     font-family: 'Montserrat', sans-serif;
+     font-size: 1rem;
+     line-height: 1.6;
+     background-color: #e5e7eb;
+}
+
+a {
+     text-decoration: none;
+}
+
+ul {
+     outline: none;
+     list-style: none;
+}
+
+/* Utilities */
+.container {
+     max-width: 1100px;
+     margin: auto;
+     overflow: hidden;
+     padding: 0 2rem;
+     margin-top: 4rem;
+     margin-bottom: 3rem;
+     background-color: #e5e7eb;
+}
+
+.x-large {
+     font-size: 4rem;
+     line-height: 1.2;
+     margin-bottom: 1rem;
+}
+
+.text-primary {
+     color: #3f51b5;
+}
+
+.large {
+     font-size: 2.5rem;
+     line-height: 1.2;
+     margin-bottom: 1rem;
+}
+
+.lead {
+     font-size: 1.3rem;
+     margin-bottom: 1rem;
+}
+
+.round-img {
+     border-radius: 50%;
+     width: 150px;
+     height: 150px;
+}
+
+.color-white {
+     color: #fff;
+}
+
+.line {
+     height: 1px;
+     background: #ccc;
+     margin: 1.5rem 0;
+}
+
+.badge {
+     font-size: 0.8rem;
+     padding: 0.1rem;
+     text-align: center;
+     margin: 0.3rem;
+     background: #fff;
+     color: #333;
+}
+
+.btn {
+     display: inline-block;
+     background: #f4f4f4;
+     color: #333;
+     padding: 0.4rem 1.3rem;
+     font-size: 1rem;
+     border: none;
+     cursor: pointer;
+     margin-right: 0.5rem;
+     transition: opacity 0.2s ease-in;
+     outline: none;
+     border-radius: 5px;
+}
+
+.btn-primary,
+.bg-primary,
+.badge-primary {
+     background: #3f51b5;
+     color: #fff;
+}
+
+.btn-light,
+.badge-light {
+     background: #fff;
+     color: #333;
+}
+
+.btn-danger {
+     background: #dc3545;
+     color: #fff;
+}
+
+.badge-dark {
+     background: #343a40;
+     color: #fff;
+}
+
+/* Login */
+.main {
+     background-color: #fff;
+     border-radius: 10px;
+     font-family: 'Montserrat', sans-serif;
+}
+
+.demo-login {
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     margin-top: 20px;
+}
+
+/* DashBoard */
+.dash {
+     background-color: #fff;
+     border-radius: 10px;
+     font-family: 'Montserrat', sans-serif;
+     padding: 50px;
+}
+
+/* Padding */
+.p {
+     padding: 0.5rem;
+}
+.pt-1 {
+     padding-top: 1rem;
+}
+.p-1 {
+     padding: 1rem;
+}
+.p-2 {
+     padding: 2rem;
+}
+.p-3 {
+     padding: 3rem;
+}
+.py {
+     padding: 0.5rem 0;
+}
+.py-1 {
+     padding: 1rem 0;
+}
+.py-2 {
+     padding: 2rem 0;
+}
+.py-3 {
+     padding: 3rem 0;
+}
+
+/* Margin */
+.m {
+     margin: 0.5rem;
+}
+.m-1 {
+     margin: 1rem;
+}
+.m-2 {
+     margin: 2rem;
+}
+.m-3 {
+     margin: 3rem;
+}
+.my {
+     margin: 0.5rem 0;
+}
+.mb-1 {
+     margin-bottom: 1rem;
+}
+.my-1 {
+     margin: 1rem 0;
+}
+.my-2 {
+     margin: 2rem 0;
+}
+.my-3 {
+     margin: 3rem 0;
+}
+
+/* LOGOs */
+#twitter {
+     color: #1da1f2;
+     font-size: 30px;
+     margin-right: 10px;
+     margin-top: 5px;
+}
+
+#fb {
+     color: #4267b2;
+     font-size: 30px;
+     margin-right: 15px;
+     margin-top: 5px;
+}
+
+#yt {
+     color: #ff0000;
+     font-size: 25px;
+     margin-right: 14px;
+     margin-top: 8px;
+}
+
+#linkedin {
+     color: #0077b5;
+     font-size: 30px;
+     margin-right: 16px;
+     margin-top: 7px;
+}
+
+#insta {
+     background: radial-gradient(
+          circle at 30% 107%,
+          #fdf497 0%,
+          #fdf497 5%,
+          #fd5949 45%,
+          #d6249f 60%,
+          #285aeb 90%
+     );
+     -webkit-background-clip: text;
+     background-clip: text;
+     -webkit-text-fill-color: transparent;
+     font-size: 30px;
+     margin-right: 16px;
+     margin-top: 7px;
+}
+
+/* Landing Page */
+.containerfluid {
+     padding-top: 20%;
+     padding-right: 570px;
+     margin-left: 40px;
+}
+
+.landing {
+     background: url('./img/showcase-01.png') no-repeat
+          center center/cover;
+     height: 90vh;
+     width: 100%;
+     background-color: #fff;
+}
+
+.MuiButtonBase-root:disabled {
+     margin-bottom: 10px;
+     margin-right: 10px;
+}
+
+@media (max-width: 970px) {
+     .containerfluid {
+          padding-top: 225px;
+          padding-right: 400px;
+          margin-left: 20px;
+     }
+}
+
+/* Create Proifle */
+.socials {
+     margin-bottom: 40px;
+}
+
+/* Add Experience */
+.addexp-btn {
+     margin-top: 20px;
+}
+
+/* Table */
+.table th,
+.table td {
+     padding: 1rem;
+     text-align: center;
+}
+
+.table th {
+     background: #e5e7eb;
+}
+
+/* Profiles Page */
+.profiles {
+     background-color: #f3f4f6;
+     border-radius: 10px;
+     border: #ccc solid 1px;
+}
+
+.profile {
+     display: grid;
+     grid-template-columns: 2fr 4fr 2fr;
+     align-items: center;
+     grid-gap: 2rem;
+     padding: 1rem;
+     line-height: 1.8;
+     margin-bottom: 1rem;
+}
+
+.profile ul {
+     outline: none;
+     list-style: none;
+}
+
+.skill-p {
+     font-weight: 100;
+}
+/* Profile Page */
+.profile-grid {
+     display: grid;
+     grid-template-areas:
+          'top top'
+          'about about'
+          'exp edu'
+          'github github';
+     grid-gap: 1rem;
+}
+
+.profile-top {
+     grid-area: top;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     background-color: #3f51b5;
+}
+
+.profile-top img {
+     width: 150px;
+}
+
+.profile-top .icons a {
+     color: #fff;
+     margin: 0 0.3rem;
+}
+
+.profile-top .icons a:hover {
+     color: #a5b4fc;
+}
+
+.profile-about {
+     grid-area: about;
+     text-align: center;
+     border: #ccc solid 1px;
+     background-color: #e0e7ff;
+}
+
+.profile-about .skills {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+}
+
+.profile-exp {
+     grid-area: exp;
+     color: #333;
+     border: #ccc solid 1px;
+     background-color: #f3f4f6;
+}
+
+.profile-edu {
+     grid-area: edu;
+     color: #333;
+     border: #ccc solid 1px;
+     background-color: #f3f4f6;
+}
+
+.profile-exp h2,
+.profile-edu h2 {
+     margin-bottom: 1rem;
+}
+
+.profile-exp > div,
+.profile-edu > div {
+     margin-bottom: 1rem;
+     padding-bottom: 1rem;
+     border-bottom: #ccc 1px dotted;
+}
+
+.profile-exp > div:last-child,
+.profile-edu > div:last-child {
+     border: 0;
+}
+
+.profile-exp p,
+.profile-edu p {
+     margin: 0.5rem 0;
+}
+
+.profile-github {
+     grid-area: github;
+}
+
+.profile-github .repo {
+     display: flex;
+     background: #fff;
+     color: #333;
+     border: #ccc solid 1px;
+}
+
+.profile-github .repo a {
+     color: #333;
+}
+
+.profile-github .repo > div:first-child {
+     flex: 7;
+     flex-basis: 70%;
+}
+
+.profile-github > div:last-child {
+     flex: 3;
+     flex-basis: 20%;
+}
+
+/* Posts Page */
+.post-form .post-form-header {
+     background: #f3f4f6;
+     padding: 0.5rem;
+}
+
+.post {
+     display: grid;
+     grid-template-columns: 1fr 4fr;
+     grid-gap: 0.5rem;
+     align-items: center;
+     background: #e0e7ff;
+     color: #333;
+     border: #ccc solid 1px;
+}
+
+.comment-item {
+     display: grid;
+     grid-template-columns: 1fr 4fr;
+     grid-gap: 0.5rem;
+     align-items: center;
+     background: #f3f4f6;
+     color: #333;
+     border: #ccc solid 1px;
+}
+
+.post h4,
+.comment-item h4 {
+     color: #3f51b5;
+}
+
+.post > div:first-child,
+.comment-item > div:first-child {
+     text-align: center;
+}
+
+.post img,
+.comment-item img {
+     width: 100px;
+     height: 100px;
+}
+
+.post .comment-count {
+     background: #fff;
+     color: #3f51b5;
+     font-weight: 600;
+     padding: 0.1rem 0.2rem;
+     border-radius: 5px;
+     font-size: 0.8rem;
+}
+
+.post .post-date,
+.comment-item .post-date {
+     color: #aaa;
+     font-size: 0.8rem;
+     margin-bottom: 0.5rem;
+}
+
+/* Mobile Stylings */
+@media (max-width: 700px) {
+     .hide-sm {
+          display: none;
+     }
+
+     .x-large {
+          font-size: 1.8rem;
+     }
+
+     .large {
+          font-size: 1.5rem;
+     }
+
+     .lead {
+          font-size: 1rem;
+     }
+
+     .dash {
+          padding: 20px;
+     }
+
+     /* Landing Page */
+     .landing {
+          background: url('./img/landing-page-01.svg')
+               no-repeat center center/cover;
+          padding-top: 220px;
+          height: 37vh;
+          width: 95%;
+     }
+
+     .containerfluid {
+          padding-top: 80px;
+          padding-right: 0px;
+          padding-left: 0px;
+          text-align: center;
+     }
+
+     .landing h1,
+     .landing p,
+     .landing hr {
+          text-align: center;
+     }
+
+     .landing button {
+          text-align: center;
+          margin: 0 10px;
+     }
+
+     /* Create Profile */
+     .create-profile-btn {
+          display: flex;
+          justify-content: center;
+     }
+
+     /* Add Experience */
+     .addexp-btn {
+          display: flex;
+          justify-content: center;
+     }
+
+     /* Profiles */
+     /* Profiles Page */
+     .profile {
+          grid-template-columns: 1fr;
+          text-align: center;
+     }
+
+     .profile ul {
+          display: none;
+     }
+
+     /* Profile Page */
+
+     .profile-top img,
+     .profile img {
+          width: 150px;
+          margin: auto;
+     }
+
+     .profile-grid {
+          grid-template-areas:
+               'top'
+               'about'
+               'exp'
+               'edu'
+               'github';
+     }
+
+     .profile-about .skills {
+          flex-direction: column;
+     }
+
+     /* Posts */
+     .post {
+          grid-template-columns: 1fr;
+     }
+
+     .post a,
+     .post button {
+          padding: 0.3rem 0.4rem;
+     }
+}
