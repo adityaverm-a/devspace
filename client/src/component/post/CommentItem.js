@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { removeComment } from '../../actions/post';
 import Moment from 'react-moment';
 
-const CommentItem = ({ auth, postId, comment: { _id, text, name, avatar, user, date } }) => {
+const CommentItem = ({ auth, postId, comment: { _id, text, name, avatar, user, date }, removeComment }) => {
     return (
         <div className="comment-item p-1 my-1">
           <div className='pt-1'>
@@ -31,7 +31,7 @@ const CommentItem = ({ auth, postId, comment: { _id, text, name, avatar, user, d
 
 CommentItem.propTypes = {
     auth: PropTypes.object.isRequired,
-    postId: PropTypes.number.isRequired,
+    postId: PropTypes.string.isRequired,
     comment: PropTypes.object.isRequired,
     removeComment: PropTypes.func.isRequired
 }

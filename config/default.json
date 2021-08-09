@@ -2,5 +2,6 @@
     "mongoURI": "mongodb+srv://aditya:aditya@devconnector.rw7n3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "jwtSecret": "mySecret",
     "githubClientID": "9de33f82884950fa0a32",
-    "githubClientSecret": "b114e752c4902f781a51455cc07e76585478fe1a"
+    "githubClientSecret": "b114e752c4902f781a51455cc07e76585478fe1a",
+    "uiMaterialKey": "hyiQlL3rY6ej7E4HfcHY"
 }

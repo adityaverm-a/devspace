@@ -3,6 +3,8 @@ const { check, validationResult } = require('express-validator');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const normalize = require('normalize-url');
+const axios = require('axios');
 const config = require('config');
 const router = express.Router();
 
@@ -27,10 +29,14 @@ router.post('/', [
         let user = await User.findOne({ email });
 
         if(user) {
-            return res.status(400).json({ msg: 'User already exists' });
+            return res.status(400).json({ errors: [{ msg: 'User already exists!' }] });
         }
 
-        const avatar = gravatar.url(email, { s: '200', r: 'pg', d: 'mm' });
+        const url = `https://avatar.uimaterial.com/?setId=${config.get('uiMaterialKey')}&name=${name}`
+
+        const img = await axios.get(url);
+
+        const avatar = img.config.url;
 
         user = new User({
             name,
@@ -51,7 +57,7 @@ router.post('/', [
             }
         };
 
-        jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 360000 }, (err, token) => {
+        jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 3600 }, (err, token) => {
             if(err) throw err;
             res.json({ token });
         })

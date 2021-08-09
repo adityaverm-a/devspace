@@ -3,7 +3,8 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import { login } from '../../actions/auth';
-import { Button, Container, CssBaseline, makeStyles, TextField, Typography } from '@material-ui/core';
+import { Button, Container, CssBaseline, makeStyles, Typography } from '@material-ui/core';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 
 const useStyles = makeStyles(theme => ({
@@ -58,6 +59,7 @@ const Login = ({ login, isAuthenticated }) => {
         email: '',
         password: ''
     });
+    const [submitted, setSubmitted] = useState(false);
 
     const { email, password } = formData;
 
@@ -67,7 +69,10 @@ const Login = ({ login, isAuthenticated }) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        login(email, password); 
+        setSubmitted(true);
+        login(email, password);
+
+        setTimeout(() => setSubmitted(false), 5000);
     }
 
     const demoLogin = (e) => {
@@ -86,8 +91,8 @@ const Login = ({ login, isAuthenticated }) => {
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component='h1' variant='h5' className={classes.title}>Login</Typography>
-                <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
-                    <TextField 
+                <ValidatorForm as='form' className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
+                    <TextValidator
                         variant='outlined'
                         margin='normal'
                         required
@@ -99,8 +104,10 @@ const Login = ({ login, isAuthenticated }) => {
                         autoComplete='email'
                         autoFocus
                         onChange={e => onChange(e)}
+                        validators={['required', 'isEmail']}
+                        errorMessages={['Please enter your Email', 'this Email is not valid']}
                     />
-                    <TextField 
+                    <TextValidator 
                         variant='outlined'
                         margin='normal'
                         required
@@ -112,6 +119,8 @@ const Login = ({ login, isAuthenticated }) => {
                         value={password}
                         autoComplete='current-password'
                         onChange={e => onChange(e)}
+                        validators={['required']}
+                        errorMessages={['Please enter your Password']}
                     />
                     <Button
                         type='submit'
@@ -119,6 +128,7 @@ const Login = ({ login, isAuthenticated }) => {
                         variant='contained'
                         color='primary'
                         className={classes.submit}
+                        disabled={submitted}
                     >Login</Button>
                     <Typography variant='subtitle1' className={classes.btndown}>Don't have an account? <Link to='/register'>Sign Up</Link></Typography>
                     <div className='demo-login'>
@@ -128,7 +138,7 @@ const Login = ({ login, isAuthenticated }) => {
                     </div>
                     <Button
                         fullWidth variant='contained' color='primary' className={classes.submit} onClick={e => demoLogin(e)}>Login as a Demo User</Button>
-                </form>
+                </ValidatorForm>
             </div>
         </Container>
     )

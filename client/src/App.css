@@ -11,6 +11,7 @@ body {
      font-size: 1rem;
      line-height: 1.6;
      background-color: #e5e7eb;
+     height: 100vh;
 }
 
 a {
@@ -250,10 +251,11 @@ ul {
 }
 
 .landing {
-     background: url('./img/showcase-01.png') no-repeat
-          center center/cover;
+     display: flex;
      height: 90vh;
      width: 100%;
+     background: url('img/showcase-01.png') no-repeat center
+          center/cover;
      background-color: #fff;
 }
 
@@ -577,7 +579,8 @@ ul {
      }
 
      /* Posts */
-     .post {
+     .post,
+     .comment-item {
           grid-template-columns: 1fr;
      }
 

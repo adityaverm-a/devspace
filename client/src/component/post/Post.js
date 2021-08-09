@@ -10,6 +10,8 @@ import { Button } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
 
 const Post = ({ getPost, post: { post, loading }, match, history  }) => {
+    
+
     useEffect(() => {
         getPost(match.params.id);
     }, [getPost, match.params.id]);

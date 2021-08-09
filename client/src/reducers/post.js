@@ -42,7 +42,7 @@ const postReducer = (state = initialState, action) => {
         case ADD_COMMENT: 
             return {
                 ...state,
-                post: {...state.post, comment: payload},
+                post: {...state.post, comments: payload},
                 loading: false
             };
 
@@ -51,7 +51,7 @@ const postReducer = (state = initialState, action) => {
                 ...state,
                 post: {
                     ...state.post,
-                    comments: state.post.comment.filter(comment => comment._id !== payload)
+                    comments: state.post.comments.filter(comment => comment._id !== payload)
                 },
                 loading: false
             };

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 import { setAlert } from '../../actions/alert';
 import { register } from '../../actions/auth';
 import PropTypes from 'prop-types'
-import { Button, Container, CssBaseline, makeStyles, TextField, Typography } from '@material-ui/core';
+import { Button, Container, CssBaseline, makeStyles, Typography } from '@material-ui/core';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const useStyles = makeStyles(theme => ({
     '@global': {
@@ -60,8 +61,23 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         password: '',
         password2: ''
     });
+    const [submitted, setSubmitted] = useState(false);
 
     const { name, email, password, password2 } = formData;
+
+    useEffect(() => {
+        ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
+            if(value !== password){
+                return false;
+            } else {
+                return true;
+            }
+        });
+
+        return () => {
+            ValidatorForm.removeValidationRule('isPasswordMatch');
+        }
+    }, [password2])
 
     const onChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,11 +85,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if(password !== password2){
-            setAlert('Passwords do not match', 'error');
-        } else {
-            register({ name, email, password })
-        }
+        setSubmitted(true);
+        register({ name, email, password });
+
+        setTimeout(() => setSubmitted(false), 5000);
     }
 
     if(isAuthenticated) {
@@ -85,8 +100,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component='h1' variant='h5' className={classes.title}>Sign Up</Typography>
-                <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
-                    <TextField 
+                <ValidatorForm as='form' className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
+                    <TextValidator 
                         variant='outlined'
                         margin='normal'
                         required
@@ -98,8 +113,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         autoComplete='name'
                         autoFocus
                         onChange={e => onChange(e)}
+                        validators={['required']}
+                        errorMessages={['Please enter your Name']}
                     />
-                    <TextField 
+                    <TextValidator
                         variant='outlined'
                         margin='normal'
                         required
@@ -111,8 +128,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         value={email}
                         autoComplete='email'
                         onChange={e => onChange(e)}
+                        validators={['required', 'isEmail']}
+                        errorMessages={['Please enter your Email', 'this Email is not valid']}
                     />
-                    <TextField 
+                    <TextValidator
                         variant='outlined'
                         margin='normal'
                         required
@@ -124,8 +143,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         value={password}
                         autoComplete='current-password'
                         onChange={e => onChange(e)}
+                        validators={['required', 'minStringLength:6']}
+                        errorMessages={['Please enter your Password', 'Select a password with atleast 6 characters']}
                     />
-                    <TextField 
+                    <TextValidator
                         variant='outlined'
                         margin='normal'
                         required
@@ -137,6 +158,8 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         value={password2}
                         autoComplete='confirm-password'
                         onChange={e => onChange(e)}
+                        validators={['required', 'isPasswordMatch']}
+                        errorMessages={['Please confirm your Password', 'Passwords do not match']}
                     />
                     <Button
                         type='submit'
@@ -144,9 +167,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
                         variant='contained'
                         color='primary'
                         className={classes.submit}
+                        disabled={submitted}
                     >Register</Button>
                     <Typography variant='subtitle1' className={classes.btndown}>Already have an account? <Link to='/login'>Sign In</Link></Typography>
-                </form>
+                </ValidatorForm>
             </div>
         </Container>
     )

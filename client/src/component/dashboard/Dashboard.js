@@ -13,7 +13,7 @@ import { Button } from '@material-ui/core';
 const Dashboard = ({ deleteAccount, getCurrentProfile, auth: { user }, profile: { profile, loading } }) => {
     useEffect(() => {
         getCurrentProfile();
-    }, [getCurrentProfile]);
+    }, [user, getCurrentProfile]);
 
     const history = useHistory();
 
