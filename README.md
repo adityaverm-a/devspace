@@ -2,7 +2,7 @@
 
 > Social network for developers
 
-This is my version of the MERN stack application from the "MERN Stack Front To Back" course on [Udemy](https://www.udemy.com/mern-stack-front-to-back/?couponCode=TRAVERSYMEDIA). It is a social network app that includes authentication, profiles and forum posts. I took some help to build the backend of this project this course, i tried to fully customize the frontend of this application, I added material-ui, toasts, real-time commenting, reponsive layout with material-ui, etc.
+This is my version of the MERN stack application from the "MERN Stack Front To Back" course on [Udemy](https://www.udemy.com/mern-stack-front-to-back/?couponCode=TRAVERSYMEDIA). It is a social network app that includes authentication, profiles and forum posts. I took some help to build the backend of this project from the udemy course, i tried to fully customize the frontend of this application, I added material-ui for styling, toasts, real-time commenting, reponsive layout with material-ui, etc.
 
 ---
 
