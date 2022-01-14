@@ -11,7 +11,7 @@ const ProfileGithub = ({ repos, getUserRepos, username }) => {
 
     return (
         <div className='profile-github'>
-            <h2 className='my-1'>Github Repos</h2>
+            {repos!==null && (<h2 className='my-1'>Github Repos</h2>)}
             {repos===null ? <Spinner/> : (
                 repos.map(repo => (
                     <div key={repo._id} className='repo p-1 my-1'>

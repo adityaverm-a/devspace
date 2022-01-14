@@ -122,7 +122,7 @@ const Navibar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <div className={classes.root}>
           <AppBar position='sticky'>
             <Toolbar>
-              <Link to='/' component={RouterLink} className={classes.title} color='inherit' ><i className="fas fa-code" style={{paddingTop: '7px'}}></i> DevConnector</Link>
+              <Link to='/' component={RouterLink} className={classes.title} color='inherit' ><i className="fas fa-code" style={{paddingTop: '7px'}}></i> DevSpace</Link>
               <div className={classes.sectionDesktop}>
                 {!loading && isAuthenticated ? 
                    <div style={{ display: 'flex'}}>

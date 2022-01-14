@@ -16,9 +16,10 @@ import PrivateRoute from '../routing/PrivateRoute';
 
 const Routes = () => {
     return (
-        <div className='container'>
-            <Alert />
-            <Switch>
+        <>
+          <Alert />
+          <Switch>
+            <div className='container'>
               <Route exact path='/login' component={Login} />
               <Route exact path='/register' component={Register} />
               <Route exact path='/profiles' component={Profiles} />
@@ -30,8 +31,9 @@ const Routes = () => {
               <PrivateRoute exact path='/add-education' component={AddEducation} />
               <PrivateRoute exact path='/posts' component={Posts} />
               <PrivateRoute exact path='/posts/:id' component={Post} />
-            </Switch>
-          </div>
+            </div>
+          </Switch>
+        </>
     )
 }
 

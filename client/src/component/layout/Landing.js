@@ -59,7 +59,7 @@ const Landing = ({ isAuthenticated }) => {
       <ThemeProvider theme={theme}>
         <div className='landing'>
           <div className="containerfluid">
-            <Typography variant='h2' style={{ fontWeight: 800 }}>Developer Connector</Typography>
+            <Typography variant='h2' style={{ fontWeight: 800 }}>Developer Space</Typography>
             <Typography variant='subtitle1' style={{ fontWeight: 300 }}>Create a developer profile/portfolio, share posts and get help from other developers.</Typography>
             <div style={{ borderTop: "1px solid #b0b5b5 ", marginTop: 20, marginBottom: 20 }}></div>
             <Button variant='contained' color='primary' size='large' style={{ marginRight: 10, marginBottom:10 }} onClick={() => handleButtonClick('/register')}>Sign Up</Button>
