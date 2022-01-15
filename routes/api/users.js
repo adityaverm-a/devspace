@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const normalize = require('normalize-url');
 const axios = require('axios');
-const config = require('config');
 const router = express.Router();
 
 const User = require('../../models/User');
@@ -31,7 +30,7 @@ router.post('/', [
             return res.status(400).json({ errors: [{ msg: 'User already exists!' }] });
         }
 
-        const url = `https://avatar.uimaterial.com/?setId=${config.get('uiMaterialKey')}&name=${name}`
+        const url = `https://avatar.uimaterial.com/?setId=${process.env.uiMaterialKey}&name=${name}`
 
         const img = await axios.get(url);
 
@@ -56,7 +55,7 @@ router.post('/', [
             }
         };
 
-        jwt.sign(payload, config.get('jwtSecret'), { expiresIn: 3600 }, (err, token) => {
+        jwt.sign(payload, process.env.jwtSecret, { expiresIn: 3600 }, (err, token) => {
             if(err) throw err;
             res.json({ token });
         })
