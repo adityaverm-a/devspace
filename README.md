@@ -1,4 +1,4 @@
-# devspace
+# DevSpace
 
 > Social network for developers
 
@@ -8,14 +8,13 @@ This is my version of the MERN stack application from the "MERN Stack Front To B
 
 # Quick Start 🚀
 
-### Add a default.json file in config folder with the following
+### Add a env file in the root folder with the following
 
 ```
-{
-  "mongoURI": "<your_mongoDB_Atlas_uri_with_credentials>",
-  "jwtSecret": "secret",
-  "githubToken": "<yoursecrectaccesstoken>"
-}
+  mongoURI: <your_mongoDB_Atlas_uri_with_credentials>
+  jwtSecret: <secret>
+  githubToken: <your_secrect_access_token>
+  uiMaterialKey: <ui_material_key>
 ```
 
 ### Install server dependencies
